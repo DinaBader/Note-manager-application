@@ -10,7 +10,10 @@ export const AddTodoAction = (todo) => (dispatch,getState) =>{
     if(!exists && todo!==''){
         dispatch({
             type:"ADD_TODO",
-            payload:[{id:todo, todo}, ...todos],
+            payload: {
+                id: Math.random().toString(36).substr(2, 9), 
+                todo: todo, 
+            },
         });
     }
 };

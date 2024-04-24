@@ -5,29 +5,27 @@ import { useSelector } from 'react-redux';
 
 function Index() {
     const router = useRouter();
-    const Todo = useSelector((state)=>state.Todo);
-    const {todos}=Todo;
+    const Todo = useSelector((state) => state.Todo);
+    const { todos } = Todo;
 
     const handleClick = () => {
         router.push('/add');
     };
 
     return (
-        <form>
-            <button onClick={handleClick}>Add to do</button>
-            {/* list all to dos */}
+        <div>
+            <button onClick={handleClick}>Add todo</button>
             <ul>
-                {todos && todos.map((t)=>(
-                    <li key={t.id}>
-                        <span>{t.todo}</span>
-                        <button> view</button>
-                        <button> edit</button>
-                        <button> delete</button>
+                {todos && todos.map((todo) => (
+                    <li key={todo.id}>
+                        <span>{todo.todo}</span>
+                        <button>View</button>
+                        <button>Edit</button>
+                        <button>Delete</button>
                     </li>
                 ))}
-               
             </ul>
-        </form>
+        </div>
     );
 }
 
