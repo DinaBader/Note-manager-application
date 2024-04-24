@@ -13,9 +13,14 @@ function AddTodo() {
     const [todo, setTodo] = useState('');
     const [description, setDescription] = useState('');
     const [showMessage, setShowMessage] = useState(false);
+    const [showEmptyfieldMessage,setshowEmptyfieldMessage]=useState(false);
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
+        if(todo=="" || description==""){
+            setshowEmptyfieldMessage(true);
+            return ;
+        }
         e.preventDefault();
         dispatch(AddTodoAction(todo, description));
 
@@ -31,8 +36,13 @@ function AddTodo() {
                 setShowMessage(false);
             }, 3000);
         }
+        if(showEmptyfieldMessage){
+            timeout = setTimeout(() => {
+                showEmptyfieldMessage(false);
+            }, 3000);
+        }
         return () => clearTimeout(timeout);
-    }, [showMessage]);
+    }, [showMessage,showEmptyfieldMessage]);
 
     const handleGoBack = () => {
         router.push('/Index');
@@ -65,6 +75,9 @@ function AddTodo() {
             </div>
             {showMessage && (
                 <Message severity="success" text="Task added successfully" style={{ marginTop: '1rem',marginLeft:'550px' }} />
+            )}
+            {showEmptyfieldMessage && (
+                <Message severity="error" text="Field cannot be empty" style={{ marginTop: '1rem',marginLeft:'550px' }} />
             )}
         </div>
     );
