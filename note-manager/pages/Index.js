@@ -12,8 +12,8 @@ function Index() {
         router.push('/add');
     };
 
-    const view=()=>{
-        router.push('/view');
+    const view=(id)=>{
+        router.push(`/view/${id}`);
     }
 
     return (
@@ -22,7 +22,7 @@ function Index() {
             <ul>
                 {todos && todos.map((todo) => (
                     <li key={todo.id}>
-                        <span onClick={()=>view()}>{todo.todo}</span>
+                        <span onClick={()=>view(todo.id)}>{todo.todo}</span>
                         <button>Edit</button>
                         <button>Delete</button>
                     </li>
