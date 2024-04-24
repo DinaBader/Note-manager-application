@@ -1,6 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
+import "../../src/app/globals.css"
+import "./view.css"; 
 
 const ViewPage = () => {
     const router = useRouter();
@@ -12,16 +14,20 @@ const ViewPage = () => {
         router.push('/Index');
     }
 
-        return (
-        <div>
-            <h1>View Page</h1>
+    return (
+        <div className="container">
+            <h1 className='title'>View Page</h1>
             {todo && 
                 <>
-                    <p>To do: {todo.todo}</p>
-                    <p>Description: {todo.description}</p> 
+                    <div className='info'>
+                        <p>To do: {todo.todo}</p>
+                        <p>Description: {todo.description}</p> 
+                    </div>
                 </>
             }
-        <button onClick={()=>GoBack()}>Go back</button>    
+            <div className='button-container'>
+                <button onClick={()=>GoBack()} className='button'>Go back</button>    
+            </div>
         </div>
     );
 };

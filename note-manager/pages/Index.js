@@ -6,6 +6,8 @@ import { DeleteTodoAction } from '@/app/actions/TodoActions';
 import { ConfirmDialog } from 'primereact/confirmdialog';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
+import "../src/app/globals.css"
+import "./index.css";
 
 function Index() {
     const router = useRouter();
@@ -39,16 +41,23 @@ function Index() {
 
     return (
         <div>
-            <button onClick={handleClick}>Add todo</button>
+            <h2 className='flex center'>Note Manager</h2>
+
             <ul>
                 {todos && todos.map((todo) => (
-                    <li key={todo.id}>
+                    <li key={todo.id} className='flex table'>
                         <span onClick={() =>  router.push(`/view/${todo.id}`)}>{todo.todo}</span>
-                        <button onClick={()=> router.push(`/edit/${todo.id}`)}>Edit</button>
-                        <button onClick={() => confirmDelete(todo.id)}>Delete</button>
+                        <div className='left'>
+                            <button onClick={()=> router.push(`/edit/${todo.id}`)}className='btn green hover' >Edit</button>
+                            <button onClick={() => confirmDelete(todo.id)} className='btn red hover'>Delete</button>
+                        </div>
                     </li>
                 ))}
             </ul>
+
+            <div className="flex center"> 
+                <button onClick={handleClick} className='btn blue hover'>Add todo</button>
+            </div>
             
             <ConfirmDialog 
                 visible={showDeleteConfirmation} 

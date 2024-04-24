@@ -1,0 +1,54 @@
+.flex {
+    display: flex;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.space{
+    justify-content: space-between;
+}
+
+.center {
+    justify-content: center;
+}
+
+.space{
+    justify-content: space-between;
+}
+
+.left{
+    margin-left: 1000px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.btn {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.blue{
+    background-color: #045aaa;
+}
+
+.red{
+    background-color: #aa0404;
+}
+
+.green{
+    background-color: #098639;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
