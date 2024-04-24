@@ -26,7 +26,7 @@ const ViewPage = () => {
                 </>
             }
             <div className='button-container'>
-                <button onClick={()=>GoBack()} className='button'>Go back</button>    
+                <button onClick={()=>GoBack()} className='btn green hover'>Go back</button>    
             </div>
         </div>
     );
