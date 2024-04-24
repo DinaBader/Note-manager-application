@@ -20,7 +20,7 @@ function Edit() {
     };
 
     const handleGoBack = () => {
-        router.push('/Index');
+        router.push('/home');
     };
 
     return (

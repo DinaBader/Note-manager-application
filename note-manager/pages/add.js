@@ -1,44 +1,44 @@
-import { AddTodoAction } from '@/app/actions/TodoActions';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
+import { AddTodoAction } from '@/app/actions/TodoActions';
 
-function add() {
+function AddTodo() {
     const router = useRouter();
+    const [todo, setTodo] = useState('');
+    const [description, setDescription] = useState('');
+    const dispatch = useDispatch();
 
-    const [todo,setTodo]=useState('');
-    const [description,setDescription]=useState('');
-    const dispatch =useDispatch();
-
-
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(AddTodoAction(todo,description));
-    }
+        dispatch(AddTodoAction(todo, description));
+    };
 
-    const GoBack=()=>{
+    const handleGoBack = () => {
         router.push('/Index');
-    }
+    };
 
-  return (
-    <div>
-        <h1>
-            Add To do
-        </h1>
-        <form onSubmit={handleSubmit}>
-            <input 
-                placeholder='Enter to do'
-                onChange={(e)=>setTodo(e.target.value)}
+    return (
+        <div>
+            <h1>Add To Do</h1>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type="text"
+                    placeholder="Enter todo"
+                    value={todo}
+                    onChange={(e) => setTodo(e.target.value)}
                 />
-            <input 
-                placeholder='Enter description'
-                onChange={(e)=>setDescription(e.target.value)}
+                <input 
+                    type="text"
+                    placeholder="Enter description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                 />
-            <button type="submit"> Add</button>
-        </form>
-        <button type="submit" onClick={()=>GoBack()}>Go back</button>
-    </div>
-  )
+                <button type="submit">Add</button>
+            </form>
+            <button onClick={handleGoBack}>Go back</button>
+        </div>
+    );
 }
 
-export default add
+export default AddTodo;

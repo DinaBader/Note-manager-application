@@ -19,15 +19,6 @@ function Index() {
         router.push('/add');
     };
 
-    const view = (id) => {
-        router.push(`/view/${id}`);
-    }
-
-    const editTodo = (id) =>{
-        router.push(`/edit/${id}`);
-    }
-
-
     const confirmDelete = (id) => {
         setTodoToDelete(id);
         setShowDeleteConfirmation(true);
@@ -52,8 +43,8 @@ function Index() {
             <ul>
                 {todos && todos.map((todo) => (
                     <li key={todo.id}>
-                        <span onClick={() => view(todo.id)}>{todo.todo}</span>
-                        <button onClick={()=>editTodo(todo.id)}>Edit</button>
+                        <span onClick={() =>  router.push(`/view/${todo.id}`)}>{todo.todo}</span>
+                        <button onClick={()=> router.push(`/edit/${todo.id}`)}>Edit</button>
                         <button onClick={() => confirmDelete(todo.id)}>Delete</button>
                     </li>
                 ))}
