@@ -1,4 +1,4 @@
-import Home from "../../pages/HomePage/Index"
+import Home from '../../pages/Index'
 export default function App() {
   return (
       <main>

@@ -1,8 +1,11 @@
 import { AddTodoAction } from '@/app/actions/TodoActions';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/navigation';
 
 function add() {
+    const router = useRouter();
+
     const [todo,setTodo]=useState('');
     const dispatch =useDispatch();
 
@@ -12,6 +15,9 @@ function add() {
         dispatch(AddTodoAction(todo));
     }
 
+    const GoBack=()=>{
+        router.push('/Index');
+    }
 
   return (
     <div>
@@ -25,6 +31,7 @@ function add() {
                 />
             <button type="submit"> Add</button>
         </form>
+        <button type="submit" onClick={()=>GoBack()}>Go back</button>
     </div>
   )
 }
