@@ -2,7 +2,15 @@ import React from 'react'
 
 function add() {
   return (
-    <div>add</div>
+    <div>
+        <h1>
+            Add To do
+        </h1>
+        <form>
+            <input placeholder='Enter to do'/>
+            <button type="submit"> Add</button>
+        </form>
+    </div>
   )
 }
 
