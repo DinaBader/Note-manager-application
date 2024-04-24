@@ -20,9 +20,18 @@ export const AddTodoAction = (todo, description) => (dispatch, getState) => {
 };
 
 export const DeleteTodoAction = (id) => (dispatch) => {
-
     dispatch({
         type: "REMOVE_TODO",
         payload: id, 
     });
 };
+
+export const EditTodoAction = (id,updatedTodo) => (dispatch)=>{
+    dispatch({
+        type:"EDIT_TODO",
+        payload:{
+          id:id,
+          todo: updatedTodo
+        },
+    })
+}
