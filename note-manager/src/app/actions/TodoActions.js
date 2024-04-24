@@ -1,7 +1,7 @@
 export const AddTodoAction = (todo) => (dispatch,getState) =>{
     const {
-        Todo:{todos},
-    }=getState;
+        Todo:{ todos },
+    }=getState();
 
     //check if the do already exists
     const exists=todos.find(i=>i.todo===todos);

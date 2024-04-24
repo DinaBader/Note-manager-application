@@ -7,7 +7,9 @@ const reducer = combineReducers({
     Todo:TodoReducer
 });
 
-const initialState={};
+const initialState={
+    todos:[],
+};
 
 const middleware=[thunk];
 
