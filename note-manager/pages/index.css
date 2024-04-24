@@ -2,3 +2,11 @@
     border-bottom: 1px solid #ccc; 
     padding: 10px 0;
 }
+.no-todos {
+    padding: 20px;
+    font-style: italic;
+}
+
+span:hover{
+    cursor: pointer;
+}

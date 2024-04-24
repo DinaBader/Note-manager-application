@@ -44,15 +44,19 @@ function Index() {
             <h2 className='flex center'>Note Manager</h2>
 
             <ul>
-                {todos && todos.map((todo) => (
+            {todos && todos.length > 0 ? (
+                todos.map((todo) => (
                     <li key={todo.id} className='flex table'>
                         <span onClick={() =>  router.push(`/view/${todo.id}`)}>{todo.todo}</span>
                         <div className='left'>
-                            <button onClick={()=> router.push(`/edit/${todo.id}`)}className='btn green hover' >Edit</button>
+                            <button onClick={() => router.push(`/edit/${todo.id}`)} className='btn green hover' >Edit</button>
                             <button onClick={() => confirmDelete(todo.id)} className='btn red hover'>Delete</button>
                         </div>
                     </li>
-                ))}
+                ))
+            ) : (
+                <p className="no-todos bold flex center">No todos available</p>
+            )}
             </ul>
 
             <div className="flex center"> 
