@@ -16,7 +16,7 @@ const ViewPage = () => {
 
     return (
         <div className="container">
-            <h1 className='title'>View Page</h1>
+            <h1 className='title'>To Do</h1>
             {todo && 
                 <>
                     <div className='info'>

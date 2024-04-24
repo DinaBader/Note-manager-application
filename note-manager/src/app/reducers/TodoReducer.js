@@ -17,7 +17,8 @@ export const TodoReducer = (state = { todos:[] }, action)=>{
                     if (todo.id === action.payload.id) {
                         return {
                             ...todo,
-                            todo: action.payload.todo
+                            todo: action.payload.todo,
+                            description:action.payload.description
                         };
                     }
                     return todo;

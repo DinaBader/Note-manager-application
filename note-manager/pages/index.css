@@ -1,4 +1,7 @@
 .table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid #ccc; 
     padding: 10px 0;
 }
@@ -9,4 +12,13 @@
 
 span:hover{
     cursor: pointer;
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+}
+
+.editbtn{
+    margin-right: 10px;
 }

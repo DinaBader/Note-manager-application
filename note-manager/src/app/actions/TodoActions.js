@@ -26,12 +26,13 @@ export const DeleteTodoAction = (id) => (dispatch) => {
     });
 };
 
-export const EditTodoAction = (id,updatedTodo) => (dispatch)=>{
+export const EditTodoAction = (id,updatedTodo,updatedDescription) => (dispatch)=>{
     dispatch({
         type:"EDIT_TODO",
         payload:{
           id:id,
-          todo: updatedTodo
+          todo: updatedTodo,
+          description:updatedDescription
         },
     })
 }

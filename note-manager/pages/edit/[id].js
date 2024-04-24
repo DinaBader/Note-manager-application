@@ -4,19 +4,25 @@ import { useSelector, useDispatch } from 'react-redux';
 import { EditTodoAction } from '@/app/actions/TodoActions';
 import "./edits.css"
 import "../../src/app/globals.css"
+
 function Edit() {
     const router = useRouter();
     const dispatch = useDispatch();
     const { id } = router.query;
     const todo = useSelector((state) => state.Todo.todos.find((item) => item.id === id));
     const [updatedTodo, setUpdatedTodo] = useState(todo ? todo.todo : '');
+    const [updatedDescription, setUpdatedDescription] = useState(todo ? todo.description : '');
 
-    const handleInputChange = (event) => {
+    const handleTodoInputChange = (event) => {
         setUpdatedTodo(event.target.value);
     };
 
+    const handleDescriptionInputChange = (event) => {
+        setUpdatedDescription(event.target.value);
+    };
+
     const handleEditTodo = () => {
-        dispatch(EditTodoAction(id, updatedTodo));
+        dispatch(EditTodoAction(id, updatedTodo, updatedDescription));
         router.push('/Index');
     };
 
@@ -34,18 +40,16 @@ function Edit() {
                     type="text"
                     id="todoInput"
                     value={updatedTodo}
-                    onChange={handleInputChange}
-                    placeholder={todo ? todo.todo : 'Enter Todo'}
+                    onChange={handleTodoInputChange}
                     className='todo'
                 />
                 <br/>
-                <label htmlFor="todoInput">Description:</label>
+                <label htmlFor="descriptionInput">Description:</label>
                 <input
                     type="text"
-                    id="todoInput"
-                    value={updatedTodo}
-                    onChange={handleInputChange}
-                    placeholder={todo ? todo.description : 'Enter Todo'}
+                    id="descriptionInput"
+                    value={updatedDescription}
+                    onChange={handleDescriptionInputChange}
                     className='todo'
                 />
             </div>

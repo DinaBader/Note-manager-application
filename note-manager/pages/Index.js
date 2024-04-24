@@ -48,8 +48,8 @@ function Index() {
                 todos.map((todo) => (
                     <li key={todo.id} className='flex table'>
                         <span onClick={() =>  router.push(`/view/${todo.id}`)}>{todo.todo}</span>
-                        <div className='left'>
-                            <button onClick={() => router.push(`/edit/${todo.id}`)} className='btn green hover' >Edit</button>
+                        <div className='button-container'>
+                            <button onClick={() => router.push(`/edit/${todo.id}`)} className='btn green hover editbtn' >Edit</button>
                             <button onClick={() => confirmDelete(todo.id)} className='btn red hover'>Delete</button>
                         </div>
                     </li>
