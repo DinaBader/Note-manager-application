@@ -22,3 +22,15 @@ span:hover{
 .editbtn{
     margin-right: 10px;
 }
+
+.no-todos {
+    padding: 20px;
+    font-style: italic;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #777;
+    text-align: center;
+    width: 100%; 
+    margin-top: 20px;
+}

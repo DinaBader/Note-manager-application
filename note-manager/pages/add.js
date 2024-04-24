@@ -49,7 +49,7 @@ function AddTodo() {
                     onChange={(e) => setTodo(e.target.value)}
                     className='addTodo'
                 />
-                <input 
+                <textarea 
                     type="text"
                     placeholder="Enter description"
                     value={description}

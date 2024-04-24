@@ -45,18 +45,20 @@ function Edit() {
                 />
                 <br/>
                 <label htmlFor="descriptionInput">Description:</label>
-                <input
+                <textarea
                     type="text"
                     id="descriptionInput"
                     value={updatedDescription}
                     onChange={handleDescriptionInputChange}
-                    className='todo'
+                    className='tododescription'
                 />
             </div>
             <br/>
             <div className='flex center'>
                 <button onClick={handleEditTodo} className='btn blue hover'>Save Changes</button>
-                <button onClick={handleGoBack} className='btn hover green'>Go back</button>
+            </div>
+            <div className='flex center'>
+                <button onClick={handleGoBack} className='btn hover green top'>Go back</button>
             </div>
         </div>
     );

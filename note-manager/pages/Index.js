@@ -55,7 +55,7 @@ function Index() {
                     </li>
                 ))
             ) : (
-                <p className="no-todos bold flex center">No todos available</p>
+                <p className="no-todos">No todos available</p>
             )}
             </ul>
 
