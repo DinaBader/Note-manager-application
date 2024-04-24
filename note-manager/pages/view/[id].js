@@ -7,6 +7,11 @@ const ViewPage = () => {
     const { id } = router.query;
 
     const todo = useSelector((state) => state.Todo.todos.find((item) => item.id === id));
+
+    const GoBack=()=>{
+        router.push('/Index');
+    }
+
         return (
         <div>
             <h1>View Page</h1>
@@ -16,7 +21,7 @@ const ViewPage = () => {
                     <p>Description: {todo.description}</p> 
                 </>
             }
-            
+        <button onClick={()=>GoBack()}>Go back</button>    
         </div>
     );
 };
