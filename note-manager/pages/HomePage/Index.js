@@ -13,6 +13,14 @@ function Index() {
         <form>
             <button onClick={handleClick}>Add to do</button>
             {/* list all to dos */}
+            <ul>
+                <li>
+                    <span>First todo</span>
+                    <button> view</button>
+                    <button> edit</button>
+                    <button> delete</button>
+                </li>
+            </ul>
         </form>
     );
 }
