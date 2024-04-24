@@ -18,3 +18,11 @@ export const AddTodoAction = (todo, description) => (dispatch, getState) => {
         });
     }
 };
+
+export const DeleteTodoAction = (id) => (dispatch) => {
+
+    dispatch({
+        type: "REMOVE_TODO",
+        payload: id, 
+    });
+};

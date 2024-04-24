@@ -6,9 +6,15 @@ export const TodoReducer = (state = { todos:[] }, action)=>{
                 todos: [action.payload, ...state.todos], 
             };
         case "REMOVE_TODO":
-            return {todos:action.payload};
+            return {
+                ...state,
+                todos: state.todos.filter(todo => todo.id !== action.payload),
+            };
         case "EDIT_TODO":
-            return {todos:action.payload};
+            return {
+                ...state,
+                todos: [action.payload, ...state.todos], 
+            };
         default:
             return state;
     }

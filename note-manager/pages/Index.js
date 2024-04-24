@@ -1,12 +1,14 @@
 "use client";
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
+import { DeleteTodoAction } from '@/app/actions/TodoActions';
 
 function Index() {
     const router = useRouter();
     const Todo = useSelector((state) => state.Todo);
     const { todos } = Todo;
+    const dispatch =useDispatch();
 
     const handleClick = () => {
         router.push('/add');
@@ -14,6 +16,10 @@ function Index() {
 
     const view=(id)=>{
         router.push(`/view/${id}`);
+    }
+
+    const deleteTodo=(id)=>{
+        dispatch(DeleteTodoAction(id));
     }
 
     return (
@@ -24,7 +30,7 @@ function Index() {
                     <li key={todo.id}>
                         <span onClick={()=>view(todo.id)}>{todo.todo}</span>
                         <button>Edit</button>
-                        <button>Delete</button>
+                        <button onClick={()=>deleteTodo(todo.id)}>Delete</button>
                     </li>
                 ))}
             </ul>
