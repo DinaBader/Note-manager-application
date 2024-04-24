@@ -1,18 +1,19 @@
-export const AddTodoAction = (todo) => (dispatch,getState) =>{
+export const AddTodoAction = (todo, description) => (dispatch, getState) => {
     const {
-        Todo:{ todos },
-    }=getState();
+        Todo: { todos },
+    } = getState();
 
-    //check if the do already exists
-    const exists=todos.find(i=>i.todo===todos);
+    // Check if the todo already exists
+    const exists = todos.find((item) => item.todo === todo);
 
-    //if it doesnt exist and todo is not empty
-    if(!exists && todo!==''){
+    // If it doesn't exist and todo is not empty
+    if (!exists && todo !== '') {
         dispatch({
-            type:"ADD_TODO",
+            type: "ADD_TODO",
             payload: {
-                id: Math.random().toString(36).substr(2, 9), 
-                todo: todo, 
+                id: Math.random().toString(36).substr(2, 9),
+                todo: todo,
+                description: description,
             },
         });
     }

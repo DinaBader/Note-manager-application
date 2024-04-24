@@ -7,12 +7,13 @@ function add() {
     const router = useRouter();
 
     const [todo,setTodo]=useState('');
+    const [description,setDescription]=useState('');
     const dispatch =useDispatch();
 
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        dispatch(AddTodoAction(todo));
+        dispatch(AddTodoAction(todo,description));
     }
 
     const GoBack=()=>{
@@ -28,6 +29,10 @@ function add() {
             <input 
                 placeholder='Enter to do'
                 onChange={(e)=>setTodo(e.target.value)}
+                />
+            <input 
+                placeholder='Enter description'
+                onChange={(e)=>setDescription(e.target.value)}
                 />
             <button type="submit"> Add</button>
         </form>
